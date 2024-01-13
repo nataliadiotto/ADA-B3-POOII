@@ -2,7 +2,7 @@ package br.com.ada.pooii.aula03.exercicio;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MinhaLista <T, U>{
+public class MinhaLista <T extends ObjetoComId<U>, U>{
 
     List<T> elementos = new ArrayList<>();
 
@@ -18,14 +18,28 @@ public class MinhaLista <T, U>{
         }
     }
 
-    public int indice(U identificador) {
-        int indice = 0;
-        for (int i = 0; i < elementos.size(); i++) {
-            if (elementos.get(i).equals(identificador)) {
-                indice = elementos.indexOf(i);
+//    public int indice(U identificador) {
+//        int indice;
+//        for (int i = 0; i < elementos.size(); i++) {
+//            T elementosDaPosicao = this.elementos.get(i);
+//            boolean isIgual = elementosDaPosicao.getId().equals(identificador);
+//        } return indice;
+//    }
+
+    //int indice(U identificador);
+    public int indice(U id) {
+        for (int i = 0; i < this.elementos.size(); i++) {
+
+            T elementoDaPosicao = this.elementos.get(i);
+            boolean isIgual = elementoDaPosicao.getId().equals(id);
+
+            if (isIgual) {
+                return i;
             }
-        } return indice;
+        }
+        return -1;
     }
+
 
     public boolean contem(T elemento) {
 
