@@ -18,17 +18,22 @@ public class StackImpl <E> implements Stack<E>{
 
     @Override
     public E pop() {
-        return listaInterna.remove(listaInterna.size() - 1); //"remove" já remove e retorna o valor
+        if (!isEmpty()) {
+            return listaInterna.remove(listaInterna.size() - 1); //"remove" já remove e retorna o valor
+        }
+        return null;
     }
 
     @Override
     public E peek() {
-        return listaInterna.get(listaInterna.size() - 1);
+        if (!isEmpty()) {
+            return listaInterna.get(listaInterna.size() - 1);
+        }
+        return null;
     }
 
     @Override
     public boolean isEmpty() {
-        if (listaInterna.isEmpty()) return true;
-        return false;
+        return listaInterna.isEmpty();
     }
 }
