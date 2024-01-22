@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class WorkingHoursValidation implements Validation{
 
-    private static final LocalDateTime limit = LocalDateTime.of(2024, 1, 19, 22, 0, 0);
+    private static final LocalDateTime limit = LocalDateTime.of(2024, 1, 22, 22, 0, 0);
 
     @Override
     public void validate(Transaction transaction) {
